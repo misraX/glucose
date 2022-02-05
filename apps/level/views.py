@@ -7,7 +7,7 @@ from apps.level.models import UserGlucoseLevel
 from apps.level.tables import UserGlucoseLevelTable
 
 
-class UserGlucoseLevelListView(SingleTableView, FilterView):
+class UserGlucoseLevelListView(FilterView, SingleTableView):
     model = UserGlucoseLevel
     table_class = UserGlucoseLevelTable
     template_name = 'levels.html'

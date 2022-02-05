@@ -1,9 +1,10 @@
 from django_filters import FilterSet, filters
+from django_tables2 import SingleTableView
 
 from apps.level.models import UserGlucoseLevel
 
 
-class UserGlucoseLeveFilterSet(FilterSet):
+class UserGlucoseLeveFilterSet(FilterSet, SingleTableView):
     """
     Filter for user's glucose level mode
     """

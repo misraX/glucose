@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "request_id_django_log",
     "django_extensions",
     'django_tables2',
+    'bootstrap3',
     "apps.authentication",
     "apps.device",
     "apps.level",
