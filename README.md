@@ -39,6 +39,9 @@ API docs using drf_yasg
 
 - /swagger/       drf_yasg.views.view     schema-swagger-ui
 
+Filters
+
+- start, stop ex: http://localhost/levels/?user=1&start=2022-02-01&stop=2022-02-17
 
 
 
