@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 
+from apps.level.api.filters import UserGlucoseLeveFilterSet
 from apps.level.api.serializers import UserGlucoseLevelSerializer
 from apps.level.models import UserGlucoseLevel
 
@@ -10,3 +11,4 @@ class LevelModelViewSet(viewsets.ModelViewSet):
     """
     queryset = UserGlucoseLevel.objects.all()
     serializer_class = UserGlucoseLevelSerializer
+    filterset_class = UserGlucoseLeveFilterSet
