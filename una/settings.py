@@ -33,11 +33,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.user",
+    "rest_framework",
+    "apps.authentication",
     "apps.device",
     "apps.level",
     "corsheaders",
-    "rest_framework",
     "django_filters",
     "request_id_django_log",
 ]
@@ -125,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")  # COLLECTSTATIC PATH
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AUTH
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 
 REST_FRAMEWORK = {
