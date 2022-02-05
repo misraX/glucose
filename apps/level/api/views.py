@@ -12,3 +12,4 @@ class LevelModelViewSet(viewsets.ModelViewSet):
     queryset = UserGlucoseLevel.objects.all()
     serializer_class = UserGlucoseLevelSerializer
     filterset_class = UserGlucoseLeveFilterSet
+    ordering_fields = '__all__'
