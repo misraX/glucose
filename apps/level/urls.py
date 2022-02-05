@@ -1,7 +1,7 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from apps.level.api.views import UserGlucoseLevelModelViewSet
+from apps.level.views import UserGlucoseLevelListView
 
-router = DefaultRouter()
-router.register(r'levels', UserGlucoseLevelModelViewSet, basename='level')
-urlpatterns = router.urls
+urlpatterns = [
+    path('levels/', UserGlucoseLevelListView.as_view(), )
+]

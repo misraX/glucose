@@ -31,17 +31,19 @@ The project is served on port 80, localhost.
 
 Levels API
 
-- /levels/        apps.level.api.views.UserGlucoseLevelModelViewSet       level-list
+- api/levels/        apps.level.api.views.UserGlucoseLevelModelViewSet       level-list
 
-- /levels/<pk>/   apps.level.api.views.UserGlucoseLevelModelViewSet       level-detail
+- api/levels/<pk>/   apps.level.api.views.UserGlucoseLevelModelViewSet       level-detail
 
 API docs using drf_yasg
 
-- /swagger/       drf_yasg.views.view     schema-swagger-ui
+- api/swagger/       drf_yasg.views.view     schema-swagger-ui
 
-Filters
+Filters and ordering
 
 - start, stop ex: http://localhost/levels/?user=1&start=2022-02-01&stop=2022-02-17
+- Ordering is set to any field on the levels API
 
+### Frontend
 
-
+- /levels/

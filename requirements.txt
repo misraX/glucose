@@ -91,3 +91,4 @@ websocket-client==0.59.0
 django-import-export
 drf-yasg
 django-tables2
+django-bootstrap3

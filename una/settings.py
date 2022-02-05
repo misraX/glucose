@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django_filters",
     "request_id_django_log",
     "django_extensions",
+    'django_tables2',
     "apps.authentication",
     "apps.device",
     "apps.level",
