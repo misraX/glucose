@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import environ
 import os
 from django.utils.translation import gettext_lazy as _
-from django.utils.translation import ugettext_lazy as _
-from next.blocked.user_agents import user_agents
 from pathlib import Path
 
 environ.Env.read_env(".env")
@@ -23,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = "*"
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -79,13 +77,13 @@ WSGI_APPLICATION = 'una.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "OPTIONS": {"read_default_file": os.path.join(BASE_DIR, "mysql.cnf")},
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
