@@ -16,6 +16,7 @@ before_script:
   - mysql -e "CREATE USER 'example'@'localhost' IDENTIFIED BY 'example';"
 # command to run tests
 script:
+  - bash scripts/init.sh
   - ./manage.py makemigrations
   - ./manage.py migrate
   - ./manage.py test
