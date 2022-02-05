@@ -6,12 +6,16 @@ python:
   - "3.8"
 
 services:
-  - docker
-  - redis
+  - mysql
+
 
 install:
   - pip install -r requirements.txt
 
+before_script:
+  - mysql -e 'create database example;'
+  - mysql -e 'create database test_example;'
+  - mysql -e "CREATE USER 'example'@'localhost' IDENTIFIED BY 'example';"
 # command to run tests
 script:
   - ./manage.py makemigrations

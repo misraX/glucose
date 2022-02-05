@@ -1,5 +1,5 @@
-from django_tables2 import SingleTableView
 from django_filters.views import FilterView
+from django_tables2 import SingleTableView
 
 # Create your views here.
 from apps.level.api.filters import UserGlucoseLeveFilterSet

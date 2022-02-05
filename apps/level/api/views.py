@@ -7,10 +7,10 @@ from apps.level.models import UserGlucoseLevel
 
 
 class UserGlucoseLevelModelViewSet(mixins.CreateModelMixin,
-                        mixins.RetrieveModelMixin,
-                        mixins.UpdateModelMixin,
-                        mixins.ListModelMixin,
-                        GenericViewSet):
+                                   mixins.RetrieveModelMixin,
+                                   mixins.UpdateModelMixin,
+                                   mixins.ListModelMixin,
+                                   GenericViewSet):
     """
    User's glucose level per device
 

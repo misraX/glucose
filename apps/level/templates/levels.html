@@ -10,18 +10,24 @@
 <body>
 <div class="container">
     <div class="row">
-
         {% if filter %}
             <form action="" method="get" class="form form-inline">
                 {% bootstrap_form filter.form layout='inline' %}
                 {% bootstrap_button 'filter' %}
             </form>
         {% endif %}
-    {% if table %}
-        <div class="col-lg-12">
-            {% render_table table %}
-        </div>
-    {% endif %}
+        {% if table %}
+            <table class="table table-bordered table-hover"
+                   data-toggle="table"
+                   data-pagination="true"
+                   data-search="true">
+                <thead class="thead-light">
+                {% for id, name in columns.items %}
+                    <th data-field="{{ id }}" data-sortable="true">{{ name }}</th>
+                {% endfor %}
+                </thead>
+            </table>
+        {% endif %}
 
     </div>
 </div>
