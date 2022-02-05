@@ -146,10 +146,18 @@ REST_FRAMEWORK = {
 # LOGGING
 LOGGING = {
     'version': 1,
+    "filters": {"request_id": {"()": "request_id_django_log.filters.RequestIDFilter"}},
+    "formatters": {
+        "file_handler_with_request_id": {
+            "format": "[%(asctime)s] [%(levelname)-2s] [%(request_id)s] [%(name)s] [%(funcName)s] %(message)s",
+        },
+    },
     'disable_existing_loggers': False,
     'handlers': {
         'file': {
             'level': 'DEBUG',
+            "filters": ["request_id"],
+            "formatter": "file_handler_with_request_id",
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'logs/request.log'),
         },
