@@ -17,7 +17,7 @@ services:
     command: "/bin/bash /una/start.sh"
     volumes:
       - ./:/una:rw
-      - ./docker/nginx/www:/var/www/static
+      - ./docker/nginx/www:/una/static
     env_file:
       - .env
     expose:
