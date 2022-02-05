@@ -19,3 +19,6 @@ django-import-export
 drf-yasg
 django-tables2
 django-bootstrap3
+django-extensions
+uwsgi
+django_extensions
