@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/misraX/glucose.svg?branch=master)](https://travis-ci.org/misraX/glucose)
+[![codecov](https://codecov.io/gh/misraX/glucose/branch/master/graph/badge.svg)](https://codecov.io/gh/misraX/glucose)
+
 Analyze user's levels from glucose devices.
 
 ### Key points
