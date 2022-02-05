@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import environ
 import os
-from django.utils.translation import gettext_lazy as _
 from pathlib import Path
+
+import environ
+from django.utils.translation import gettext_lazy as _
 
 environ.Env.read_env(".env")
 env = environ.Env()
@@ -32,16 +33,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_filters",
-]
-INTERNAL_APPS = [
-    "apps.auth",
+    "apps.user",
     "apps.device",
-    "apps.glucose",
-]
-EXTERNAL_APPS = [
+    "apps.level",
     "corsheaders",
     "rest_framework",
+    "django_filters",
     "request_id_django_log",
 ]
 
@@ -84,22 +81,21 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.user.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.user.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.user.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.user.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -127,3 +123,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")  # COLLECTSTATIC PATH
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTH
+AUTH_USER_MODEL = 'user.User'
