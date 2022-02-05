@@ -10,32 +10,41 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import environ
+import os
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ugettext_lazy as _
+from next.blocked.user_agents import user_agents
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(".env")
+env = environ.Env()
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env.bool("DEBUG")
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ew#n-1tht%=u$=fd6$w+9=j=&sgyjjmkr-#h4gf0cgl03sk_9m'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = "*"
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_filters",
+]
+INTERNAL_APPS = [
+    "apps.auth",
+    "apps.device",
+    "apps.glucose",
+]
+EXTERNAL_APPS = [
+    "corsheaders",
+    "rest_framework",
+    "request_id_django_log",
 ]
 
 MIDDLEWARE = [
