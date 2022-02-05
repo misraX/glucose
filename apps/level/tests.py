@@ -5,13 +5,13 @@ from apps.device.models import GlucoseDevice
 
 
 class UserGlucoseLevelModelViewSetTest(APITestCase):
-    def test_list_levels(self):
+    def test_create_levels(self):
         # create user
         user = User.objects.create_user(username="misrax", password="misrax", email="misrax@misrax.com")
         # create device
         device = GlucoseDevice.objects.create(name="FreeStyle LibreLink", serial="2da283e0-2c18-444e-8f9b-801e90a2af5b")
         client = APIClient()
-        client.post('/level/', {
+        create_date = client.post('/level/', {
             "meta": {},
             "device_timestamp": "2022-02-05T16:54:42.886Z",
             "recording_type": "string",
@@ -31,3 +31,9 @@ class UserGlucoseLevelModelViewSetTest(APITestCase):
             "user": user.id,
             "device": device.id
         }, format='json')
+        self.assertEqual(create_date.status_code, 201)
+
+    def test_list_levels(self):
+        client = APIClient()
+        create_date = client.get('/level/')
+        self.assertEqual(create_date.status_code, 200)
