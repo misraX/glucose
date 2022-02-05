@@ -89,3 +89,4 @@ uWSGI==2.0.19.1
 virtualenv==20.13.0
 websocket-client==0.59.0
 django-import-export
+drf-yasg

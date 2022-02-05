@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "drf_yasg",
     "corsheaders",
     "django_filters",
     "request_id_django_log",
@@ -50,7 +51,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "request_id_django_log.middleware.RequestIdDjangoLog",
 ]
+REQUEST_ID_CONFIG = {
+    "REQUEST_ID_HEADER": "HTTP_X_REQUEST_ID",
+    "GENERATE_REQUEST_ID_IF_NOT_FOUND": True,
+    "RESPONSE_HEADER_REQUEST_ID": "HTTP_X_REQUEST_ID",
+}
 
 ROOT_URLCONF = 'una.urls'
 
@@ -134,4 +141,24 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.OrderingFilter',
     ]
+}
+
+# LOGGING
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/request.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
 }
