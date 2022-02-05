@@ -25,9 +25,19 @@ bash ./init.sh
 docker-compose build
 docker-compose up -d
 ```
-The project is served on port 80, localhost/levels/
+The project is served on port 80, localhost.
 
 ### API
+
+Levels API
+
+- /levels/        apps.level.api.views.UserGlucoseLevelModelViewSet       level-list
+
+- /levels/<pk>/   apps.level.api.views.UserGlucoseLevelModelViewSet       level-detail
+
+API docs using drf_yasg
+
+- /swagger/       drf_yasg.views.view     schema-swagger-ui
 
 
 

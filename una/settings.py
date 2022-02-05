@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_filters",
     "request_id_django_log",
+    "django_extensions",
     "apps.authentication",
     "apps.device",
     "apps.level",
