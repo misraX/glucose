@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source venv/bin/activate
-pip install -r requirements/dev
+pip install -r requirements.txt
 docker-compose up -d
 ./manage.py makemigrations
 ./manage.py migrate
