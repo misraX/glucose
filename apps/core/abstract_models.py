@@ -7,7 +7,7 @@ from model_utils.models import TimeStampedModel
 
 class AbstractBaseModel(TimeStampedModel):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    meta = models.JSONField(_("meta"), null=True)
+    meta = models.JSONField(_("meta"), null=True, blank=True)
 
     class Meta:
         abstract = True
