@@ -11,3 +11,6 @@ class GlucoseDevice(AbstractBaseModel):
     class Meta:
         db_table = "glucose_device"
         ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.name}"

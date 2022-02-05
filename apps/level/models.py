@@ -32,3 +32,7 @@ class UserGlucoseLevel(AbstractBaseModel):
     class Meta:
         db_table = "user_glucose_level"
         ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.user} {self.device}"
+
