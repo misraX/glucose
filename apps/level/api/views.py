@@ -6,13 +6,17 @@ from apps.level.api.serializers import UserGlucoseLevelSerializer
 from apps.level.models import UserGlucoseLevel
 
 
-class LevelModelViewSet(mixins.CreateModelMixin,
+class UserGlucoseLevelModelViewSet(mixins.CreateModelMixin,
                         mixins.RetrieveModelMixin,
                         mixins.UpdateModelMixin,
                         mixins.ListModelMixin,
                         GenericViewSet):
     """
-    A simple ViewSet for viewing and editing accounts.
+   User's glucose level per device
+
+   You can filter by start and stop
+
+   Order by any field
     """
     queryset = UserGlucoseLevel.objects.all()
     serializer_class = UserGlucoseLevelSerializer

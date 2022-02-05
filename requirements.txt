@@ -90,3 +90,4 @@ virtualenv==20.13.0
 websocket-client==0.59.0
 django-import-export
 drf-yasg
+django-tables2
