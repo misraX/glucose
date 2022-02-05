@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -10,7 +11,7 @@ class UserGlucoseLevel(AbstractBaseModel):
     """
     Recorded user's glucose leve per device
     """
-    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"), on_delete=models.CASCADE)
     device = models.ForeignKey(GlucoseDevice, verbose_name=_("Device"), on_delete=models.CASCADE)
     device_timestamp = models.DateTimeField(_("Device Timestamp"), null=True)
     recording_type = models.CharField(_("Recording Type"), default=0, max_length=250)
