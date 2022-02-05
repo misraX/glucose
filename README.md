@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/misraX/glucose.svg?branch=main)](https://app.travis-ci.com/github/misraX/glucose)
-
 Analyze user's levels from glucose devices.
 
 ### Key points
